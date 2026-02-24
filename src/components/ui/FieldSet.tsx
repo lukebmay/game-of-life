@@ -1,3 +1,12 @@
+/*
+ * Author: Luke Benjamin May
+ * Website: lukemay.com
+ *
+ * Copyright © 2025-2026 Luke B. May. All rights reserved.
+ *
+ * This is part of my personal portfolio.
+ * No permission is granted to copy, modify, distribute, or use this code.
+ */
 import ResetIcon from "@svg/ResetIcon";
 import clsx from "clsx";
 import React, { type ComponentProps } from "react";

@@ -1,3 +1,12 @@
+/*
+ * Author: Luke Benjamin May
+ * Website: lukemay.com
+ *
+ * Copyright © 2025-2026 Luke B. May. All rights reserved.
+ *
+ * This is part of my personal portfolio.
+ * No permission is granted to copy, modify, distribute, or use this code.
+ */
 import ResetIcon from "@/assets/svg/ResetIcon";
 import { useGameStore } from "@/store/gameStore";
 import { useAppStore } from "@store/appStore";

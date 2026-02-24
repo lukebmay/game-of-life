@@ -1,3 +1,12 @@
+/*
+ * Author: Luke Benjamin May
+ * Website: lukemay.com
+ *
+ * Copyright © 2025-2026 Luke B. May. All rights reserved.
+ *
+ * This is part of my personal portfolio.
+ * No permission is granted to copy, modify, distribute, or use this code.
+ */
 import { create } from "zustand";
 import { devtools, persist, subscribeWithSelector } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
