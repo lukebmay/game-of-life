@@ -1,0 +1,83 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark;
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true; /* Sets as the default theme */
+
+  /* Base colors */
+  --color-base-100: oklch(0.97 0 0); /* neutral-100 */
+  --color-base-200: oklch(0.922 0 0); /* neutral-200 */
+  --color-base-300: oklch(0.87 0 0); /* neutral-50 */
+  --color-base-content: oklch(0.371 0 0); /* neutral-700 */
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: false;
+
+  /* Base colors */
+  --color-base-100: oklch(0.205 0 0); /* neutral-900 */
+  --color-base-200: oklch(0.269 0 0); /* neutral-800 */
+  --color-base-300: oklch(0.371 0 0); /* neutral-700 */
+  --color-base-content: oklch(0.87 0 0); /* neutral-300 */
+}
+
+hr {
+  color: var(--color-base-300);
+}
+
+label {
+  color: var(--color-base-content);
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: teal; /* should always be overridden */
+  background-color: #3311bb; /* should always be overridden */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  align-items: stretch;
+  justify-content: start;
+
+  overflow: hidden;
+}
+
+/* Default background for all cells (dead state) */
+.cmp_board > * {
+  background-color: var(--dead-color, #000000);
+}
+
+/* Alive cells override the background */
+.cmp_board > *.cell-alive {
+  background-color: var(--alive-color, #3311bb);
+}
+
+/* Grid lines — only active when .show-grid is on the grid container */
+.cmp_board.show-grid > * {
+  outline: 0.5px solid color(from var(--grid-color, #222222) srgb r g b / 0.5);
+  outline-offset: -0.25px; /* Shift grid line exactly on the pixel grid */
+}
