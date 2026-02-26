@@ -25,21 +25,21 @@ const Footer: React.FC = () => {
         <>
           <div className={clsx("grid grid-cols-4 gap-2 text-xs")}>
             <div>{isPaused ? "PAUSED" : ""}</div>
-            <div className="font-bold">Min (ms)</div>
-            <div className="font-bold">Max (ms)</div>
-            <div className="font-bold">Avg (ms)</div>
+            <div className="text-right font-bold">Min (ms)</div>
+            <div className="text-right font-bold">Max (ms)</div>
+            <div className="text-right font-bold">Avg (ms)</div>
             <div className="font-bold">Last 10 Frames</div>
-            <div>{renderStats.last10?.min?.toFixed(2) ?? "-"}</div>
-            <div>{renderStats.last10?.max?.toFixed(2) ?? "-"}</div>
-            <div>{renderStats.last10?.avg?.toFixed(2) ?? "-"}</div>
+            <div className="text-right">{renderStats.last10?.min?.toFixed(2) ?? "-"}</div>
+            <div className="text-right">{renderStats.last10?.max?.toFixed(2) ?? "-"}</div>
+            <div className="text-right">{renderStats.last10?.avg?.toFixed(2) ?? "-"}</div>
             <div className="font-bold">Last 100 Frames</div>
-            <div>{renderStats.last100?.min?.toFixed(2) ?? "-"}</div>
-            <div>{renderStats.last100?.max?.toFixed(2) ?? "-"}</div>
-            <div>{renderStats.last100?.avg?.toFixed(2) ?? "-"}</div>
+            <div className="text-right">{renderStats.last100?.min?.toFixed(2) ?? "-"}</div>
+            <div className="text-right">{renderStats.last100?.max?.toFixed(2) ?? "-"}</div>
+            <div className="text-right">{renderStats.last100?.avg?.toFixed(2) ?? "-"}</div>
             <div className="font-bold">Last 1000 Frames</div>
-            <div>{renderStats.last1000?.min?.toFixed(2) ?? "-"}</div>
-            <div>{renderStats.last1000?.max?.toFixed(2) ?? "-"}</div>
-            <div>{renderStats.last1000?.avg?.toFixed(2) ?? "-"}</div>
+            <div className="text-right">{renderStats.last1000?.min?.toFixed(2) ?? "-"}</div>
+            <div className="text-right">{renderStats.last1000?.max?.toFixed(2) ?? "-"}</div>
+            <div className="text-right">{renderStats.last1000?.avg?.toFixed(2) ?? "-"}</div>
           </div>
           <div
             style={{ color: "var(--color-base-300)" }}
