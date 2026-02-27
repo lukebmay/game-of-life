@@ -7,6 +7,7 @@
  * This is part of my personal portfolio.
  * No permission is granted to copy, modify, distribute, or use this code.
  */
+import { useNumberInput } from "@hooks/useNumberInput";
 import { useGameStore } from "@store/gameStore";
 import FieldSet from "@ui/FieldSet";
 import clsx from "clsx";
@@ -28,6 +29,22 @@ const BoardDimensions: React.FC = () => {
     resetCols();
   };
 
+  const rowsInput = useNumberInput({
+    value: rows,
+    onChange: setRows,
+    min: 10,
+    max: 100,
+    step: 10,
+  });
+
+  const colsInput = useNumberInput({
+    value: cols,
+    onChange: setCols,
+    min: 10,
+    max: 100,
+    step: 10,
+  });
+
   return (
     <FieldSet
       title="Board Dimensions"
@@ -38,36 +55,17 @@ const BoardDimensions: React.FC = () => {
         Rows
         <input
           id="settings_rows"
-          type="number"
           className="input input-primary text-center text-xl"
-          min={10}
-          max={100}
-          step={10}
-          value={rows}
-          onChange={(e) => {
-            const r = parseInt(e.target.value);
-            if (!isNaN(r)) {
-              setRows(r);
-            }
-          }}
+          {...rowsInput.inputProps} // ← all the magic in one spread
         />
       </label>
+
       <label className={clsx("label", "flex", "flex-col")}>
         Columns
         <input
           id="settings_cols"
-          type="number"
           className="input input-primary text-center text-xl"
-          min={10}
-          max={100}
-          step={10}
-          value={cols}
-          onChange={(e) => {
-            const c = parseInt(e.target.value);
-            if (!isNaN(c)) {
-              setCols(c);
-            }
-          }}
+          {...colsInput.inputProps}
         />
       </label>
     </FieldSet>

@@ -85,7 +85,7 @@ label {
   background-color: var(--alive-color, #3311bb);
 }
 
-/* Grid lines — only active when .show-grid is on the grid container */
+/* Grid lines */
 .cmp_board.show-grid > * {
   outline: 0.5px solid color(from var(--grid-color, #222222) srgb r g b / 0.5);
   outline-offset: -0.25px; /* Shift grid line exactly on the pixel grid */

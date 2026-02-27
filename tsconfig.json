@@ -15,6 +15,7 @@
       "@components/*": ["src/components/*"],
       "@engine/*": ["src/engine/*"],
       "@features/*": ["src/components/features/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@store/*": ["src/store/*"],
       "@svg/*": ["src/assets/svg/*"],
       "@ui/*": ["src/components/ui/*"],
@@ -23,4 +24,3 @@
     "lib": ["dom", "dom.iterable", "esnext"]
   }
 }
-

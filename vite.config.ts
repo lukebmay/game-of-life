@@ -22,6 +22,7 @@ export default defineConfig({
       "@components": fileURLToPath(new URL("./src/components", import.meta.url)),
       "@engine": fileURLToPath(new URL("./src/engine", import.meta.url)),
       "@features": fileURLToPath(new URL("./src/components/features", import.meta.url)),
+      "@hooks": fileURLToPath(new URL("./src/hooks", import.meta.url)),
       "@store": fileURLToPath(new URL("./src/store", import.meta.url)),
       "@svg": fileURLToPath(new URL("./src/assets/svg", import.meta.url)),
       "@ui": fileURLToPath(new URL("./src/components/ui", import.meta.url)),
