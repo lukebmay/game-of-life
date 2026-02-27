@@ -14,11 +14,17 @@ const Brand: React.FC = () => {
   const cmpClass = "cmp_brand";
 
   return (
-    <div className={clsx("flex", "flex-row", "text-3xl", "justify-around", cmpClass)}>
+    <div
+      className={clsx(
+        "flex-1 text-center whitespace-nowrap font-bold",
+        "tracking-tight", // tighten space between letters
+        "text-[clamp(1.25rem,5.2vw,1.875rem)]", // scale font instead of wrapping
+        cmpClass,
+      )}
+    >
       Conway's Game of Life
     </div>
   );
 };
 
 export default Brand;
-

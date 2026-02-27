@@ -20,39 +20,44 @@ const Footer: React.FC = () => {
   const renderStats = useAppStore((state) => state.renderStats);
 
   return (
-    <div className={clsx("flex", "flex-row", "items-center", "justify-around pt-3")}>
-      {!isDebugInfoVisible ? null : (
-        <>
-          <div className={clsx("grid grid-cols-4 gap-2 text-xs")}>
-            <div>{isPaused ? "PAUSED" : ""}</div>
-            <div className="text-right font-bold">Min (ms)</div>
-            <div className="text-right font-bold">Max (ms)</div>
-            <div className="text-right font-bold">Avg (ms)</div>
-            <div className="font-bold">Last 10 Frames</div>
-            <div className="text-right">{renderStats.last10?.min?.toFixed(2) ?? "-"}</div>
-            <div className="text-right">{renderStats.last10?.max?.toFixed(2) ?? "-"}</div>
-            <div className="text-right">{renderStats.last10?.avg?.toFixed(2) ?? "-"}</div>
-            <div className="font-bold">Last 100 Frames</div>
-            <div className="text-right">{renderStats.last100?.min?.toFixed(2) ?? "-"}</div>
-            <div className="text-right">{renderStats.last100?.max?.toFixed(2) ?? "-"}</div>
-            <div className="text-right">{renderStats.last100?.avg?.toFixed(2) ?? "-"}</div>
-            <div className="font-bold">Last 1000 Frames</div>
-            <div className="text-right">{renderStats.last1000?.min?.toFixed(2) ?? "-"}</div>
-            <div className="text-right">{renderStats.last1000?.max?.toFixed(2) ?? "-"}</div>
-            <div className="text-right">{renderStats.last1000?.avg?.toFixed(2) ?? "-"}</div>
-          </div>
-          <div
-            style={{ color: "var(--color-base-300)" }}
-            className="border-solid border h-full"
-          ></div>
-        </>
+    <div
+      className={clsx(
+        "flex flex-col lg:flex-row items-center justify-center lg:justify-evenly pt-3",
+        cmpClass,
       )}
-      <div className={clsx("flex", "flex-col", "items-around", "p-2", "gap-5", cmpClass)}>
-        <div className="flex flex-col items-center gap-1">
-          <span className="text-sm text-center font-bold">Luke Benjamin May</span>
-          <span className="text-sm text-center font-bold">2025</span>
-          <span className="text-xs text-center">All rights reserved</span>
+    >
+      {isDebugInfoVisible && (
+        <div className="grid grid-cols-4 gap-x-2 text-[8px] lg:text-xs transition-transform">
+          <div>{isPaused ? "PAUSED" : ""}</div>
+          <div className="text-right font-bold">Min (ms)</div>
+          <div className="text-right font-bold">Max (ms)</div>
+          <div className="text-right font-bold">Avg (ms)</div>
+
+          <div className="font-bold">Last 10</div>
+          <div className="text-right">{renderStats.last10?.min?.toFixed(2) ?? "-"}</div>
+          <div className="text-right">{renderStats.last10?.max?.toFixed(2) ?? "-"}</div>
+          <div className="text-right">{renderStats.last10?.avg?.toFixed(2) ?? "-"}</div>
+
+          <div className="font-bold">Last 100</div>
+          <div className="text-right">{renderStats.last100?.min?.toFixed(2) ?? "-"}</div>
+          <div className="text-right">{renderStats.last100?.max?.toFixed(2) ?? "-"}</div>
+          <div className="text-right">{renderStats.last100?.avg?.toFixed(2) ?? "-"}</div>
+
+          <div className="font-bold">Last 1000</div>
+          <div className="text-right">{renderStats.last1000?.min?.toFixed(2) ?? "-"}</div>
+          <div className="text-right">{renderStats.last1000?.max?.toFixed(2) ?? "-"}</div>
+          <div className="text-right">{renderStats.last1000?.avg?.toFixed(2) ?? "-"}</div>
         </div>
+      )}
+
+      <div className="text-center">
+        <span className="font-bold text-[8px] lg:text-base">
+          <span className="lg:block">© 2025 </span>
+          <span className="lg:block">Luke Benjamin May </span>
+        </span>
+        <span className="hidden lg:block text-[10px] text-base-400 mt-0.5">
+          All rights reserved
+        </span>
       </div>
     </div>
   );

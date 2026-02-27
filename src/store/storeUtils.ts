@@ -25,6 +25,10 @@ export type BasicStateKeys<T> = {
   [K in keyof T as `reset${Capitalize<string & K>}`]: () => void;
 } & {
   [K in keyof T as T[K] extends boolean ? `toggle${Capitalize<string & K>}` : never]: () => void;
+} & {
+  [K in keyof T as T[K] extends boolean ? `enable${Capitalize<string & K>}` : never]: () => void;
+} & {
+  [K in keyof T as T[K] extends boolean ? `disable${Capitalize<string & K>}` : never]: () => void;
 };
 
 export const generateGetSetReset =
@@ -75,5 +79,30 @@ export const generateGetSetReset =
               (draft as any)[key] = !(draft as any)[key];
             }),
         ]),
+    ) as BasicStateKeys<T>),
+
+    // Enable / Disable (only for booleans)
+    ...(Object.fromEntries(
+      Object.entries(defaults)
+        .filter(([, v]) => typeof v === "boolean")
+        .flatMap(([key]) => {
+          const cap = key[0].toUpperCase() + key.slice(1);
+          return [
+            [
+              `enable${cap}`,
+              () =>
+                set((draft: T) => {
+                  (draft as any)[key] = true;
+                }),
+            ],
+            [
+              `disable${cap}`,
+              () =>
+                set((draft: T) => {
+                  (draft as any)[key] = false;
+                }),
+            ],
+          ];
+        }),
     ) as BasicStateKeys<T>),
   });

@@ -50,12 +50,18 @@ const Settings: React.FC = () => {
   return (
     <div
       className={clsx(
-        isSettingsVisible ? "w-sm border-r-1" : "w-0",
-        "overflow-hidden",
-        "flex",
-        "flex-col",
-        "transition-all duration-300 ease-in-out",
-        "border-base-300",
+        // Desktop (lg means `> 1024px`) - No overlay, push content over
+        isSettingsVisible ? "lg:w-sm lg:border-r-1" : "lg:w-0 lg:border-r-0",
+        "lg:flex-shrink-0 lg:transition-all lg:duration-300 lg:ease-in-out",
+
+        // Tablet/Phone (max-lg means `<= 1024px`) - Overlay, max-width 384px, scales if smaller
+        "max-lg:fixed max-lg:top-0 max-lg:left-0 max-lg:bottom-0",
+        "max-lg:w-[min(100%,24rem)]", // fixed 384px on tablets, full width on phones
+        "max-lg:z-[1250] max-lg:bg-base-100 max-lg:shadow-2xl",
+        "max-lg:transition-transform max-lg:duration-350 max-lg:ease-[cubic-bezier(0.32,0.72,0,1)]",
+        isSettingsVisible ? "max-lg:translate-x-0" : "max-lg:-translate-x-full",
+
+        "flex flex-col overflow-hidden border-base-300",
         cmpClass,
       )}
     >
@@ -88,7 +94,14 @@ const Settings: React.FC = () => {
         </div>
         <hr className={clsx("text-inherit")} />
       </div>
-      <div className={clsx("w-full", "pl-3", "pr-3", "pb-3", "relative", "overflow-auto")}>
+      <div
+        className="flex-1 pl-3 pr-3 pb-3 overflow-auto origin-top-left transition-transform"
+        style={{
+          width: "384px",
+          maxWidth: "100%",
+          transform: "scale(min(1, calc(100vw / 384px)))",
+        }}
+      >
         <BoardColors />
         <Grid />
         <StateTransitionDelay />

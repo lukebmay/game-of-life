@@ -28,4 +28,9 @@ export default defineConfig({
       "@util": fileURLToPath(new URL("./src/util", import.meta.url)),
     },
   },
+  server: {
+    host: true, // listen on 0.0.0.0
+    // port: 5173,
+    // strictPort: true, // error if port is in use
+  },
 });
