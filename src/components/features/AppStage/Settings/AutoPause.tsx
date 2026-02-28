@@ -72,7 +72,7 @@ const AutoPause: React.FC = () => {
   return (
     <FieldSet
       title="Auto-Pause After (seconds)"
-      className={clsx("flex flex-row justify-around", cmpClass)}
+      className={clsx("flex flex-row justify-around gap-x-0.5", cmpClass)}
       onReset={resetHandler}
     >
       <label className={clsx("label flex flex-col")}>
@@ -87,9 +87,9 @@ const AutoPause: React.FC = () => {
         </button>
       </label>
 
-      <div className="label flex flex-col w-20">
+      <div className="label flex flex-col w-17">
         Delay (s)
-        <input className="input input-primary text-center text-xl" {...secondsInput.inputProps} />
+        <input className="input input-primary text-center text-lg" {...secondsInput.inputProps} />
       </div>
 
       <label className={clsx("label flex flex-col")}>

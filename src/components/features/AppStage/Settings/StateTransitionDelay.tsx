@@ -70,7 +70,7 @@ const StateTransitionDelay: React.FC = () => {
   return (
     <FieldSet
       title="State Transition Delay (ms)"
-      className={clsx("flex", "flex-row", "justify-around", cmpClass)}
+      className={clsx("flex", "flex-row", "justify-around", "gap-x-0.5", cmpClass)}
       onReset={resetHandler}
     >
       <label className={clsx("label", "flex", "flex-col")}>
@@ -87,7 +87,7 @@ const StateTransitionDelay: React.FC = () => {
 
       <div className="label flex flex-col w-17">
         Delay (ms)
-        <input className="input input-primary text-center text-xl" {...delayInput.inputProps} />
+        <input className="input input-primary text-center text-lg" {...delayInput.inputProps} />
       </div>
 
       <label className={clsx("label", "flex", "flex-col")}>
