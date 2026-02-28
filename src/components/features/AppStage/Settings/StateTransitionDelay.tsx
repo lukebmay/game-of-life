@@ -86,7 +86,7 @@ const StateTransitionDelay: React.FC = () => {
       </label>
 
       <div className="label flex flex-col w-17">
-        Delay
+        Delay (ms)
         <input className="input input-primary text-center text-xl" {...delayInput.inputProps} />
       </div>
 

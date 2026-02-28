@@ -7,9 +7,10 @@
  * This is part of my personal portfolio.
  * No permission is granted to copy, modify, distribute, or use this code.
  */
-import { useAppStore } from "@/store/appStore";
-import { useGameStore } from "@/store/gameStore";
 import gol, { type Board as EngineBoard } from "@engine/gol";
+import { useAutoPause } from "@hooks/useAutoPause";
+import { useAppStore } from "@store/appStore";
+import { useGameStore } from "@store/gameStore";
 import clsx from "clsx";
 import React, { useEffect, useRef } from "react";
 import Board from "./GameStage/Board";
@@ -26,6 +27,9 @@ const GameStage: React.FC = () => {
   const playTimeoutId = useRef(0);
   const isDebugInfoVisible = useAppStore((state) => state.isDebugInfoVisible);
   const updateRenderStats = useAppStore((state) => state.updateRenderStats);
+
+  // Auto pause
+  useAutoPause();
 
   // play/pause effect
   useEffect(() => {

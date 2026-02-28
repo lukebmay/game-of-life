@@ -13,6 +13,7 @@ import { useAppStore } from "@store/appStore";
 import CloseIcon from "@svg/CloseIcon";
 import clsx from "clsx";
 import React from "react";
+import AutoPause from "./Settings/AutoPause";
 import BoardColors from "./Settings/BoardColors";
 import BoardDimensions from "./Settings/BoardDimensions";
 import DebugInfo from "./Settings/DebugInfo";
@@ -104,9 +105,10 @@ const Settings: React.FC = () => {
       >
         <BoardColors />
         <Grid />
-        <StateTransitionDelay />
         <BoardDimensions />
+        <StateTransitionDelay />
         <DebugInfo />
+        <AutoPause />
       </div>
     </div>
   );

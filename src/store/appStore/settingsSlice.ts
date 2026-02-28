@@ -18,6 +18,7 @@ export const defaults = {
   isGridVisible: true,
   stateTransitionDelay: 200,
   isDebugInfoVisible: false,
+  autoPauseAfterSeconds: 120,
 };
 
 const validators = {} satisfies ValidatorMap<typeof defaults>;
