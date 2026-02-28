@@ -9,6 +9,7 @@
  */
 import gol, { type Board as EngineBoard } from "@engine/gol";
 import { useAutoPause } from "@hooks/useAutoPause";
+import { useResetDebugOnVisibility } from "@hooks/useResetDebugOnVisibility";
 import { useAppStore } from "@store/appStore";
 import { useGameStore } from "@store/gameStore";
 import clsx from "clsx";
@@ -30,6 +31,9 @@ const GameStage: React.FC = () => {
 
   // Auto pause
   useAutoPause();
+
+  // Reset debugging after suspension
+  useResetDebugOnVisibility();
 
   // play/pause effect
   useEffect(() => {
