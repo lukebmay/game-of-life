@@ -16,18 +16,28 @@ import React from "react";
 const Grid: React.FC = () => {
   const cmpClass = "cmp_settings_grid";
 
+  const isDarkMode = useAppStore((state) => state.isDarkMode);
+
   const isGridVisible = useAppStore((state) => state.isGridVisible);
   const toggleIsGridVisible = useAppStore((state) => state.toggleIsGridVisible);
   const resetIsGridVisible = useAppStore((state) => state.resetIsGridVisible);
 
-  const boardGridColor = useAppStore((state) => state.boardGridColor);
-  const setBoardGridColor = useAppStore((state) => state.setBoardGridColor);
-  const resetBoardGridColor = useAppStore((state) => state.resetBoardGridColor);
+  const boardGridColorDark = useAppStore((state) => state.boardGridColorDark);
+  const setBoardGridColorDark = useAppStore((state) => state.setBoardGridColorDark);
+  const resetBoardGridColorDark = useAppStore((state) => state.resetBoardGridColorDark);
+
+  const boardGridColorLight = useAppStore((state) => state.boardGridColorLight);
+  const setBoardGridColorLight = useAppStore((state) => state.setBoardGridColorLight);
+  const resetBoardGridColorLight = useAppStore((state) => state.resetBoardGridColorLight);
 
   const resetHandler = () => {
     resetIsGridVisible();
-    resetBoardGridColor();
+    resetBoardGridColorDark();
+    resetBoardGridColorLight();
   };
+
+  const currentGridColor = isDarkMode ? boardGridColorDark : boardGridColorLight;
+  const setCurrentGridColor = isDarkMode ? setBoardGridColorDark : setBoardGridColorLight;
 
   return (
     <FieldSet
@@ -48,7 +58,7 @@ const Grid: React.FC = () => {
       </label>
       <label className={clsx("label", "flex", "flex-col")}>
         Grid Color
-        <ColorSelector color={boardGridColor} onChange={setBoardGridColor} />
+        <ColorSelector color={currentGridColor} onChange={setCurrentGridColor} />
       </label>
     </FieldSet>
   );

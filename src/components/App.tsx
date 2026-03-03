@@ -9,6 +9,7 @@
  */
 import AppStage from "@features/AppStage";
 import BrandingBar from "@features/BrandingBar";
+import { useSyncBoardColors } from "@hooks/useSyncBoardColors";
 import { useAppStore } from "@store/appStore";
 import clsx from "clsx";
 import React, { useEffect } from "react";
@@ -31,6 +32,8 @@ const App: React.FC = () => {
     document.documentElement.style.colorScheme = `only ${initialTheme}`;
     return unsubscribe;
   }, []);
+
+  useSyncBoardColors();
 
   return (
     <div

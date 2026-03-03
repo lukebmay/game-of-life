@@ -17,23 +17,49 @@ import React from "react";
 const BoardColors: React.FC = () => {
   const cmpClass = "cmp_settings_board-colors";
 
-  const boardBgColor = useAppStore((state) => state.boardBgColor);
-  const setBoardBgColor = useAppStore((state) => state.setBoardBgColor);
-  const resetBoardBgColor = useAppStore((state) => state.resetBoardBgColor);
+  const isDarkMode = useAppStore((state) => state.isDarkMode);
 
-  const boardFgColor = useAppStore((state) => state.boardFgColor);
-  const setBoardFgColor = useAppStore((state) => state.setBoardFgColor);
-  const resetBoardFgColor = useAppStore((state) => state.resetBoardFgColor);
+  const boardBgColorDark = useAppStore((state) => state.boardBgColorDark);
+  const setBoardBgColorDark = useAppStore((state) => state.setBoardBgColorDark);
+  const resetBoardBgColorDark = useAppStore((state) => state.resetBoardBgColorDark);
+
+  const boardBgColorLight = useAppStore((state) => state.boardBgColorLight);
+  const setBoardBgColorLight = useAppStore((state) => state.setBoardBgColorLight);
+  const resetBoardBgColorLight = useAppStore((state) => state.resetBoardBgColorLight);
+
+  const boardFgColorDark = useAppStore((state) => state.boardFgColorDark);
+  const setBoardFgColorDark = useAppStore((state) => state.setBoardFgColorDark);
+  const resetBoardFgColorDark = useAppStore((state) => state.resetBoardFgColorDark);
+
+  const boardFgColorLight = useAppStore((state) => state.boardFgColorLight);
+  const setBoardFgColorLight = useAppStore((state) => state.setBoardFgColorLight);
+  const resetBoardFgColorLight = useAppStore((state) => state.resetBoardFgColorLight);
 
   const swapFgBg = () => {
-    setBoardFgColor(boardBgColor);
-    setBoardBgColor(boardFgColor);
+    if (isDarkMode) {
+      const bg = boardFgColorDark;
+      const fg = boardFgColorDark;
+      setBoardBgColorDark(fg);
+      setBoardFgColorDark(bg);
+    } else {
+      const bg = boardFgColorLight;
+      const fg = boardFgColorLight;
+      setBoardBgColorLight(fg);
+      setBoardFgColorLight(bg);
+    }
   };
 
   const resetHandler = () => {
-    resetBoardFgColor();
-    resetBoardBgColor();
+    resetBoardBgColorDark();
+    resetBoardBgColorLight();
+    resetBoardFgColorDark();
+    resetBoardFgColorLight();
   };
+
+  const currentBgColor = isDarkMode ? boardBgColorDark : boardBgColorLight;
+  const setCurrentBgColor = isDarkMode ? setBoardBgColorDark : setBoardBgColorLight;
+  const currentFgColor = isDarkMode ? boardFgColorDark : boardFgColorLight;
+  const setCurrentFgColor = isDarkMode ? setBoardFgColorDark : setBoardFgColorLight;
 
   return (
     <FieldSet
@@ -43,7 +69,7 @@ const BoardColors: React.FC = () => {
     >
       <label className={clsx("label", "flex", "flex-col")}>
         Living Cell Color
-        <ColorSelector color={boardFgColor} onChange={setBoardFgColor} />
+        <ColorSelector color={currentFgColor} onChange={setCurrentFgColor} />
       </label>
       <label className={clsx("label", "flex", "flex-col")}>
         Swap
@@ -53,7 +79,7 @@ const BoardColors: React.FC = () => {
       </label>
       <label className={clsx("label", "flex", "flex-col")}>
         Dead Cell Color
-        <ColorSelector color={boardBgColor} onChange={setBoardBgColor} />
+        <ColorSelector color={currentBgColor} onChange={setCurrentBgColor} />
       </label>
     </FieldSet>
   );

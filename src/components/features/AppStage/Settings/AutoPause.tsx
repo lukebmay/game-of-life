@@ -37,7 +37,7 @@ const AutoPause: React.FC = () => {
     let current = autoPauseAfterSeconds;
     if (current === -1) current = 0;
 
-    let delta = 30;
+    let delta = 3750;
     if (current < 10) delta = 1;
     else if (current < 60) delta = 6;
     else if (current < 300) delta = 30;
@@ -51,7 +51,7 @@ const AutoPause: React.FC = () => {
     let current = autoPauseAfterSeconds;
     if (current === -1) return;
 
-    let delta = 30;
+    let delta = 3750;
     if (current <= 10) delta = 1;
     else if (current <= 60) delta = 6;
     else if (current <= 300) delta = 30;

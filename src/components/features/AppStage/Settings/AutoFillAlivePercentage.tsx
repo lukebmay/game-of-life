@@ -14,7 +14,7 @@ import clsx from "clsx";
 import React from "react";
 
 const BoardDimensions: React.FC = () => {
-  const cmpClass = "cmp_settings_autoFillAlivePercentage";
+  const cmpClass = "cmp_settings_auto-fill-alive-percentage";
 
   const alivePercentage = useAppStore((state) => state.autoFillAlivePercentage);
   const setAivePercentage = useAppStore((state) => state.setAutoFillAlivePercentage);

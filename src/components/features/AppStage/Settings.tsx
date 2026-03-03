@@ -29,8 +29,12 @@ const Settings: React.FC = () => {
 
   const clickCloseSettings = () => toggleIsSettingsVisible();
 
-  const resetBoardBgColor = useAppStore((state) => state.resetBoardBgColor);
-  const resetBoardFgColor = useAppStore((state) => state.resetBoardFgColor);
+  const resetBoardBgColorDark = useAppStore((state) => state.resetBoardBgColorDark);
+  const resetBoardBgColorLight = useAppStore((state) => state.resetBoardBgColorLight);
+  const resetBoardFgColorDark = useAppStore((state) => state.resetBoardFgColorDark);
+  const resetBoardFgColorLight = useAppStore((state) => state.resetBoardFgColorLight);
+  const resetBoardGridColorDark = useAppStore((state) => state.resetBoardGridColorDark);
+  const resetBoardGridColorLight = useAppStore((state) => state.resetBoardGridColorLight);
   const resetRows = useGameStore((state) => state.resetRows);
   const resetCols = useGameStore((state) => state.resetCols);
   const resetIsDebugInfoVisible = useAppStore((state) => state.resetIsDebugInfoVisible);
@@ -39,8 +43,12 @@ const Settings: React.FC = () => {
   const resetStateTransitionDelay = useAppStore((state) => state.resetStateTransitionDelay);
 
   const resetHandler = () => {
-    resetBoardFgColor();
-    resetBoardBgColor();
+    resetBoardBgColorDark();
+    resetBoardBgColorLight();
+    resetBoardFgColorDark();
+    resetBoardFgColorLight();
+    resetBoardGridColorDark();
+    resetBoardGridColorLight();
     resetRows();
     resetCols();
     resetIsDebugInfoVisible();

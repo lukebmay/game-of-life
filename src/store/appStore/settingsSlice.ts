@@ -13,20 +13,29 @@ import type { AppStore } from "../appStore";
 export const defaults = {
   isSettingsVisible: false,
   boardBgColor: "#000000",
+  boardBgColorDark: "#000000",
+  boardBgColorLight: "#FFFFFF",
   boardFgColor: "#3311bb",
+  boardFgColorDark: "#3311bb",
+  boardFgColorLight: "#22cc77",
   boardGridColor: "#222222",
+  boardGridColorDark: "#222222",
+  boardGridColorLight: "#bbbbbb",
   isGridVisible: true,
   stateTransitionDelay: 200,
   isDebugInfoVisible: false,
-  autoPauseAfterSeconds: 120,
+  autoPauseAfterSeconds: 600,
   autoFillAlivePercentage: 30.0,
 };
 
 const validateRGBString = (value: string): boolean => /^#[0-9abcfef]{6}$/i.test(value);
 const validators = {
-  boardBgColor: validateRGBString,
-  boardFgColor: validateRGBString,
-  boardGridColor: validateRGBString,
+  boardBgColorDark: validateRGBString,
+  boardBgColorLight: validateRGBString,
+  boardFgColorDark: validateRGBString,
+  boardFgColorLight: validateRGBString,
+  boardGridColorDark: validateRGBString,
+  boardGridColorLight: validateRGBString,
   stateTransitionDelay: (value: number) => Number.isInteger(value) && value >= 0 && value <= 10000,
   autoPauseAfterSeconds: (value: number) =>
     Number.isInteger(value) && value >= -1 && value <= 36000,
@@ -35,8 +44,27 @@ const validators = {
 
 const basicStateOps = generateGetSetReset(defaults, validators);
 
-export interface SettingsSlice extends ReturnType<typeof basicStateOps> {}
+export interface SettingsSlice extends ReturnType<typeof basicStateOps> {
+  syncBoardColors: () => void;
+}
 
 export const createSettingsSlice: SliceCreator<SettingsSlice, AppStore> = (set, get) => ({
   ...basicStateOps(set, get),
+  syncBoardColors: () => {
+    const {
+      isDarkMode,
+      boardBgColorDark,
+      boardBgColorLight,
+      boardFgColorDark,
+      boardFgColorLight,
+      boardGridColorDark,
+      boardGridColorLight,
+    } = get();
+
+    set((draft) => {
+      draft.boardBgColor = isDarkMode ? boardBgColorDark : boardBgColorLight;
+      draft.boardFgColor = isDarkMode ? boardFgColorDark : boardFgColorLight;
+      draft.boardGridColor = isDarkMode ? boardGridColorDark : boardGridColorLight;
+    });
+  },
 });
