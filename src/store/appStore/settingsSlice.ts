@@ -19,9 +19,19 @@ export const defaults = {
   stateTransitionDelay: 200,
   isDebugInfoVisible: false,
   autoPauseAfterSeconds: 120,
+  autoFillAlivePercentage: 30.0,
 };
 
-const validators = {} satisfies ValidatorMap<typeof defaults>;
+const validateRGBString = (value: string): boolean => /^#[0-9abcfef]{6}$/i.test(value);
+const validators = {
+  boardBgColor: validateRGBString,
+  boardFgColor: validateRGBString,
+  boardGridColor: validateRGBString,
+  stateTransitionDelay: (value: number) => Number.isInteger(value) && value >= 0 && value <= 10000,
+  autoPauseAfterSeconds: (value: number) =>
+    Number.isInteger(value) && value >= -1 && value <= 36000,
+  autoFillAlivePercentage: (value: number) => value >= 0 && value <= 100,
+} satisfies ValidatorMap<typeof defaults>;
 
 const basicStateOps = generateGetSetReset(defaults, validators);
 

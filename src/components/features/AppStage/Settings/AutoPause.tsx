@@ -24,7 +24,6 @@ const AutoPause: React.FC = () => {
   const setAutoPauseAfterSeconds = useAppStore((state) => state.setAutoPauseAfterSeconds);
   const resetAutoPauseAfterSeconds = useAppStore((state) => state.resetAutoPauseAfterSeconds);
 
-  // Use our reusable hook (supports -1 for disabled)
   const secondsInput = useNumberInput({
     value: autoPauseAfterSeconds,
     onChange: setAutoPauseAfterSeconds,
@@ -33,10 +32,10 @@ const AutoPause: React.FC = () => {
     step: 1,
   });
 
-  // Smart delta for +/- buttons
+  // Smart delta
   const increase = () => {
     let current = autoPauseAfterSeconds;
-    if (current === -1) current = 0; // start from 0 when disabled
+    if (current === -1) current = 0;
 
     let delta = 30;
     if (current < 10) delta = 1;
@@ -50,7 +49,7 @@ const AutoPause: React.FC = () => {
 
   const decrease = () => {
     let current = autoPauseAfterSeconds;
-    if (current === -1) return; // can't go lower than disabled
+    if (current === -1) return;
 
     let delta = 30;
     if (current <= 10) delta = 1;
@@ -62,11 +61,11 @@ const AutoPause: React.FC = () => {
     setAutoPauseAfterSeconds(Math.max(-1, current - delta));
   };
 
-  const decreaseMin = () => setAutoPauseAfterSeconds(-1); // Disable
-  const increaseMax = () => setAutoPauseAfterSeconds(36000); // 1 hour
+  const decreaseMin = () => setAutoPauseAfterSeconds(-1);
+  const increaseMax = () => setAutoPauseAfterSeconds(36000);
 
   const resetHandler = () => {
-    resetAutoPauseAfterSeconds(); // resets to 120
+    resetAutoPauseAfterSeconds();
   };
 
   return (

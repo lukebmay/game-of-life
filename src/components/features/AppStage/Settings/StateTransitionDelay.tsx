@@ -33,7 +33,7 @@ const StateTransitionDelay: React.FC = () => {
     step: 1,
   });
 
-  // Button handlers (unchanged — they still work instantly)
+  // Smart delta
   const increaseDelay = () => {
     const delay = Math.max(0, Math.min(10000, stateTransitionDelay));
     let delta = 1000;

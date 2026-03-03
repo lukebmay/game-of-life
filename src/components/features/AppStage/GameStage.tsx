@@ -35,7 +35,7 @@ const GameStage: React.FC = () => {
   // Reset debugging after suspension
   useResetDebugOnVisibility();
 
-  // play/pause effect
+  // Play/pause effect
   useEffect(() => {
     if (isPaused) {
       if (playTimeoutId.current) {
@@ -62,7 +62,7 @@ const GameStage: React.FC = () => {
     };
   }, [isPaused, stateTransitionDelay, advanceStep, isDebugInfoVisible, updateRenderStats]);
 
-  // board size effect
+  // Board size effect
   const rows = useGameStore((state) => state.rows);
   const cols = useGameStore((state) => state.cols);
   const setBoard = useGameStore((state) => state.setBoard);

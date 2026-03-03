@@ -13,6 +13,7 @@ import { useAppStore } from "@store/appStore";
 import CloseIcon from "@svg/CloseIcon";
 import clsx from "clsx";
 import React from "react";
+import AutoFillAlivePercentage from "./Settings/AutoFillAlivePercentage";
 import AutoPause from "./Settings/AutoPause";
 import BoardColors from "./Settings/BoardColors";
 import BoardDimensions from "./Settings/BoardDimensions";
@@ -109,6 +110,7 @@ const Settings: React.FC = () => {
         <StateTransitionDelay />
         <DebugInfo />
         <AutoPause />
+        <AutoFillAlivePercentage />
       </div>
     </div>
   );

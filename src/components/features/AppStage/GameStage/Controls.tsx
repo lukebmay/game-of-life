@@ -12,6 +12,7 @@ import { useGameStore } from "@store/gameStore";
 import ForwardStepIcon from "@svg/ForwardStepIcon";
 import PauseIcon from "@svg/PauseIcon";
 import PlayIcon from "@svg/PlayIcon";
+import RandomIcon from "@svg/RandomIcon";
 import TrashIcon from "@svg/TrashIcon";
 import clsx from "clsx";
 import React from "react";
@@ -23,6 +24,7 @@ const Controls: React.FC = () => {
   const toggleIsPaused = useGameStore((state) => state.toggleIsPaused);
   const advanceStep = useGameStore((state) => state.advanceStep);
   const clearBoard = useGameStore((state) => state.clearBoard);
+  const randomizeBoard = useGameStore((state) => state.randomizeBoard);
   const resetRenderStats = useAppStore((state) => state.resetRenderStats);
   const handlePlayPause = () => {
     if (isPaused) {
@@ -45,6 +47,16 @@ const Controls: React.FC = () => {
             disabled={!isPaused}
           >
             <ForwardStepIcon />
+          </button>
+        </div>
+        <div className={clsx("flex", "flex-row", "items-around", "p-2", "gap-5", cmpClass)}>
+          <button
+            className="btn btn-primary"
+            type="button"
+            onClick={randomizeBoard}
+            disabled={!isPaused}
+          >
+            <RandomIcon />
           </button>
         </div>
         <div className={clsx("flex", "flex-row", "items-around", "p-2", "gap-5", cmpClass)}>

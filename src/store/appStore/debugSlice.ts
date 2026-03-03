@@ -34,7 +34,23 @@ export const defaults: { renderStats: RenderStats } = {
   },
 };
 
-const validators = {} satisfies ValidatorMap<typeof defaults>;
+const validators: ValidatorMap<typeof defaults> = {
+  renderStats: (newVal): newVal is RenderStats => {
+    if (typeof newVal !== "object" || newVal === null) return false;
+
+    const s = newVal as RenderStats;
+
+    return (
+      Array.isArray(s.deltas) &&
+      (typeof s.then === "number" || s.then === null) &&
+      (s.last10 === null || (typeof s.last10 === "object" && typeof s.last10.avg === "number")) &&
+      (s.last100 === null ||
+        (typeof s.last100 === "object" && typeof s.last100.avg === "number")) &&
+      (s.last1000 === null ||
+        (typeof s.last1000 === "object" && typeof s.last1000.avg === "number"))
+    );
+  },
+} satisfies ValidatorMap<typeof defaults>;
 
 const basicStateOps = generateGetSetReset(defaults, validators);
 
