@@ -11,7 +11,7 @@ import { type SliceCreator, type ValidatorMap, generateGetSetReset } from "@stor
 import type { AppStore } from "../appStore";
 
 export const defaults = {
-  isDarkMode: false,
+  isDarkMode: true,
 };
 
 const validators = {} satisfies ValidatorMap<typeof defaults>;
@@ -22,5 +22,5 @@ export interface DarkModeSlice extends ReturnType<typeof basicStateOps> {}
 
 export const createDarkModeSlice: SliceCreator<DarkModeSlice, AppStore> = (set, get) => ({
   ...basicStateOps(set, get),
-  isDarkMode: window.matchMedia("(prefers-color-scheme: dark)").matches,
+  isDarkMode: window.matchMedia("(prefers-color-scheme: light)").matches,
 });
