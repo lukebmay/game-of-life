@@ -22,8 +22,8 @@ export const defaults = {
 };
 
 const validators = {
-  rows: (value: number) => Number.isInteger(value) && value >= 10 && value <= 100,
-  cols: (value: number) => Number.isInteger(value) && value >= 10 && value <= 100,
+  rows: (value: number) => Number.isInteger(value) && value >= 10 && value <= 200,
+  cols: (value: number) => Number.isInteger(value) && value >= 10 && value <= 200,
   board: (value: Board) => value.length === rows && value[0].length === cols,
 } satisfies ValidatorMap<typeof defaults>;
 
@@ -53,7 +53,7 @@ export const createBoardSlice: SliceCreator<BoardSlice, GameStore> = (set, get) 
       draft.board = gol.initEmptyBoard(draft.rows, draft.cols);
     }),
   randomizeBoard: () => {
-    const percentage = useAppStore.getState().autoFillAlivePercentage; // read from appStore
+    const percentage = useAppStore.getState().autoFillAlivePercentage;
 
     set((draft) => {
       const rows = draft.board.length;

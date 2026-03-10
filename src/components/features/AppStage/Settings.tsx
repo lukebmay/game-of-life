@@ -112,13 +112,13 @@ const Settings: React.FC = () => {
           transform: "scale(min(1, calc(100vw / 384px)))",
         }}
       >
+        <BoardDimensions />
         <BoardColors />
         <Grid />
-        <BoardDimensions />
         <StateTransitionDelay />
-        <DebugInfo />
         <AutoPause />
         <AutoFillAlivePercentage />
+        <DebugInfo />
       </div>
     </div>
   );

@@ -16,7 +16,6 @@
 
 @plugin "daisyui/theme" {
   name: "light";
-  default: true; /* Sets as the default theme */
 
   /* Base colors */
   --color-base-100: theme(colors.neutral.200);
@@ -27,7 +26,6 @@
 
 @plugin "daisyui/theme" {
   name: "dark";
-  default: false;
 
   /* Base colors */
   --color-base-100: theme(colors.neutral.900);
@@ -73,6 +71,18 @@ label {
   justify-content: start;
 
   overflow: hidden;
+}
+
+/* Hide default number spinners: Chrome, Safari, Edge, Opera */
+.no-spinners::-webkit-outer-spin-button,
+.no-spinners::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+.no-spinners {
+  appearance: textfield;
+  -moz-appearance: textfield;
 }
 
 /* Default background for all cells (dead state) */

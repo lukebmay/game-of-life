@@ -7,9 +7,9 @@
  * This is part of my personal portfolio.
  * No permission is granted to copy, modify, distribute, or use this code.
  */
-import { useNumberInput } from "@hooks/useNumberInput";
 import { useGameStore } from "@store/gameStore";
 import FieldSet from "@ui/FieldSet";
+import NumberInput from "@ui/NumberInput";
 import clsx from "clsx";
 import React from "react";
 
@@ -29,21 +29,21 @@ const BoardDimensions: React.FC = () => {
     resetCols();
   };
 
-  const rowsInput = useNumberInput({
+  const rowsInput = {
     value: rows,
     onChange: setRows,
     min: 10,
-    max: 100,
+    max: 200,
     step: 10,
-  });
+  };
 
-  const colsInput = useNumberInput({
+  const colsInput = {
     value: cols,
     onChange: setCols,
     min: 10,
-    max: 100,
+    max: 200,
     step: 10,
-  });
+  };
 
   return (
     <FieldSet
@@ -52,21 +52,13 @@ const BoardDimensions: React.FC = () => {
       onReset={resetHandler}
     >
       <label className={clsx("label", "flex", "flex-col")}>
-        Rows
-        <input
-          id="settings_rows"
-          className="input input-primary text-center text-xl"
-          {...rowsInput.inputProps} // ← all the magic in one spread
-        />
+        Rows (10-200)
+        <NumberInput id="board-dimensions_rows" className="input-primary" {...rowsInput} />
       </label>
 
       <label className={clsx("label", "flex", "flex-col")}>
-        Columns
-        <input
-          id="settings_cols"
-          className="input input-primary text-center text-xl"
-          {...colsInput.inputProps}
-        />
+        Columns (10-200)
+        <NumberInput id="board-dimensions_cols" className="input-primary" {...colsInput} />
       </label>
     </FieldSet>
   );

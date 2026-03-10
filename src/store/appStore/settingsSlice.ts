@@ -23,7 +23,7 @@ export const defaults = {
   boardGridColorLight: "#bbbbbb",
   isGridVisible: true,
   stateTransitionDelay: 200,
-  isDebugInfoVisible: true,
+  isDebugInfoVisible: false,
   autoPauseAfterSeconds: 600,
   autoFillAlivePercentage: 30.0,
 };

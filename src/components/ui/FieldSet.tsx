@@ -41,15 +41,13 @@ export const FieldSet: React.FC<FieldSetProps> = ({
     >
       <legend className="fieldset-legend">
         {title}
-        {onReset && (
-          <button
-            type="button"
-            className={clsx("absolute", "right-1", "top-6", "cursor-pointer", "text-base-300")}
-            onClick={onReset}
-          >
-            <ResetIcon size="1rem" />
-          </button>
-        )}
+        <button
+          type="button"
+          className={clsx("absolute", "right-1", "top-6", "cursor-pointer", "text-base-300")}
+          onClick={onReset}
+        >
+          <ResetIcon size="1rem" />
+        </button>
       </legend>
 
       {children}
