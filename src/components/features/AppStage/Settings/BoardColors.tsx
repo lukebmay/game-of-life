@@ -37,12 +37,12 @@ const BoardColors: React.FC = () => {
 
   const swapFgBg = () => {
     if (isDarkMode) {
-      const bg = boardFgColorDark;
+      const bg = boardBgColorDark;
       const fg = boardFgColorDark;
       setBoardBgColorDark(fg);
       setBoardFgColorDark(bg);
     } else {
-      const bg = boardFgColorLight;
+      const bg = boardBgColorLight;
       const fg = boardFgColorLight;
       setBoardBgColorLight(fg);
       setBoardFgColorLight(bg);

@@ -21,11 +21,11 @@ function isValidHexColor(color: string): boolean {
 }
 
 const ColorSelector: React.FC<ColorSelectorProps> = ({ color, onChange }) => {
-  const poId = useId();
-  const inpId = useId();
-  const anchorName = `--color-anchor-${poId}`;
+  const popoverId = useId();
+  const inputId = useId();
+  const anchorName = `--color-anchor-${popoverId}`;
 
-  const poRef = useRef<HTMLDivElement>(null);
+  const popoverRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const [tmpColor, setTmpColor] = useState(color);
@@ -35,10 +35,10 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({ color, onChange }) => {
   }, [color]);
 
   const handlePopoverOpen = () => {
-    if (!poRef?.current?.matches(":popover-open")) {
-      poRef?.current?.showPopover();
-    } else if (poRef?.current?.matches(":popover-open")) {
-      poRef?.current?.hidePopover();
+    if (popoverRef?.current?.matches(":popover-open")) {
+      popoverRef?.current?.hidePopover();
+    } else {
+      popoverRef?.current?.showPopover();
     }
   };
 
@@ -46,12 +46,12 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({ color, onChange }) => {
     if (isValidHexColor(tmpColor)) {
       onChange(tmpColor);
     }
-    poRef?.current?.hidePopover();
+    popoverRef?.current?.hidePopover();
   };
 
   const handleCancel = () => {
     setTmpColor(color);
-    poRef?.current?.hidePopover();
+    popoverRef?.current?.hidePopover();
   };
 
   const handlePickerChange = (newColor: string) => {
@@ -67,12 +67,12 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({ color, onChange }) => {
   };
 
   useOnClickOutside(
-    [poRef as React.RefObject<HTMLElement>, buttonRef as React.RefObject<HTMLElement>],
+    [popoverRef as React.RefObject<HTMLElement>, buttonRef as React.RefObject<HTMLElement>],
     (e) => {
       handleCancel();
       e.stopPropagation();
     },
-    "mouseup",
+    "mousedown",
   );
 
   return (
@@ -98,8 +98,8 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({ color, onChange }) => {
         </div>
       </button>
       <div
-        id={poId}
-        ref={poRef}
+        id={popoverId}
+        ref={popoverRef}
         className="inset-auto fixed overflow-visible rounded-box border"
         style={
           {
@@ -117,7 +117,7 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({ color, onChange }) => {
         <div className="flex flex-col">
           <HexColorPicker color={tmpColor} onChange={handlePickerChange} />
           <HexColorInput
-            id={inpId}
+            id={inputId}
             className="text-lg w-50"
             prefixed={true}
             color={tmpColor}
@@ -138,4 +138,3 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({ color, onChange }) => {
 };
 
 export default ColorSelector;
-
