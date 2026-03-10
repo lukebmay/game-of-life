@@ -24,7 +24,7 @@ export const defaults = {
   isGridVisible: true,
   stateTransitionDelay: 200,
   isDebugInfoVisible: false,
-  autoPauseAfterSeconds: 600,
+  autoPauseAfterMinutes: 10,
   autoFillAlivePercentage: 30.0,
 };
 
@@ -37,8 +37,7 @@ const validators = {
   boardGridColorDark: validateRGBString,
   boardGridColorLight: validateRGBString,
   stateTransitionDelay: (value: number) => Number.isInteger(value) && value >= 0 && value <= 10000,
-  autoPauseAfterSeconds: (value: number) =>
-    Number.isInteger(value) && value >= -1 && value <= 36000,
+  autoPauseAfterMinutes: (value: number) => Number.isInteger(value) && value >= 0 && value <= 1440,
   autoFillAlivePercentage: (value: number) => value >= 0 && value <= 100,
 } satisfies ValidatorMap<typeof defaults>;
 

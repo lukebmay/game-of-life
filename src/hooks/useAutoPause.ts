@@ -15,18 +15,20 @@ import { useEffect } from "react";
 export const useAutoPause = () => {
   const isPaused = useGameStore((s) => s.isPaused);
   const toggleIsPaused = useGameStore((s) => s.toggleIsPaused);
-  const autoPauseAfterSeconds = useAppStore((s) => s.autoPauseAfterSeconds);
+  const autoPauseAfterMinutes = useAppStore((s) => s.autoPauseAfterMinutes);
 
   useEffect(() => {
-    if (isPaused || autoPauseAfterSeconds <= 0) {
-      // clear any existing timer
+    if (isPaused || autoPauseAfterMinutes <= 0) {
       return;
     }
 
-    const timeoutId = setTimeout(() => {
-      toggleIsPaused(); // auto-pause
-    }, autoPauseAfterSeconds * 1000);
+    const timeoutId = setTimeout(
+      () => {
+        toggleIsPaused();
+      },
+      autoPauseAfterMinutes * 60 * 1000,
+    );
 
     return () => clearTimeout(timeoutId);
-  }, [isPaused, autoPauseAfterSeconds, toggleIsPaused]);
+  }, [isPaused, autoPauseAfterMinutes, toggleIsPaused]);
 };

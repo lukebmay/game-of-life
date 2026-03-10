@@ -16,20 +16,20 @@ import React from "react";
 const AutoPause: React.FC = () => {
   const cmpClass = "cmp_settings_auto-pause";
 
-  const autoPauseAfterSeconds = useAppStore((state) => state.autoPauseAfterSeconds);
-  const setAutoPauseAfterSeconds = useAppStore((state) => state.setAutoPauseAfterSeconds);
-  const resetAutoPauseAfterSeconds = useAppStore((state) => state.resetAutoPauseAfterSeconds);
+  const autoPauseAfterMinutes = useAppStore((state) => state.autoPauseAfterMinutes);
+  const setAutoPauseAfterMinutes = useAppStore((state) => state.setAutoPauseAfterMinutes);
+  const resetAutoPauseAfterMinutes = useAppStore((state) => state.resetAutoPauseAfterMinutes);
 
   const delayInput = {
-    value: autoPauseAfterSeconds,
-    onChange: setAutoPauseAfterSeconds,
-    min: -1,
-    max: 36000,
-    step: 60,
+    value: autoPauseAfterMinutes,
+    onChange: setAutoPauseAfterMinutes,
+    min: 0,
+    max: 1440,
+    step: 5,
   };
 
   const resetHandler = () => {
-    resetAutoPauseAfterSeconds();
+    resetAutoPauseAfterMinutes();
   };
 
   return (
@@ -39,7 +39,7 @@ const AutoPause: React.FC = () => {
       onReset={resetHandler}
     >
       <label className={clsx("label", "flex", "flex-col")}>
-        Delay (s)
+        Delay (min)
         <NumberInput id="auto-pause" className="input-primary" {...delayInput} />
       </label>
     </FieldSet>
