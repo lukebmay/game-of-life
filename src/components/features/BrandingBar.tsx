@@ -36,9 +36,11 @@ const BrandingBar: React.FC = () => {
         <MenuIcon />
       </button>
       <Brand />
-      <button className="btn" onClick={clickDarkModeToggle}>
-        {isDarkMode ? <NightIcon /> : <DayIcon />}
-      </button>
+      <div className="flex gap-2">
+        <NightIcon />
+        <input className="toggle" type="checkbox" checked={!isDarkMode} onClick={toggleDarkMode} />
+        <DayIcon />
+      </div>
     </div>
   );
 };
