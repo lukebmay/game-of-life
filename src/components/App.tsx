@@ -9,6 +9,7 @@
  */
 import AppStage from "@features/AppStage";
 import BrandingBar from "@features/BrandingBar";
+import Help from "@features/Help";
 import { useSyncBoardColors } from "@hooks/useSyncBoardColors";
 import { useAppStore } from "@store/appStore";
 import clsx from "clsx";
@@ -49,6 +50,7 @@ const App: React.FC = () => {
     >
       <BrandingBar />
       <AppStage />
+      <Help />
     </div>
   );
 };

@@ -16,7 +16,7 @@ const Brand: React.FC = () => {
   return (
     <div
       className={clsx(
-        "flex-1 text-center whitespace-nowrap font-bold",
+        "flex-1 text-center whitespace-nowrap font-bold p-2",
         "tracking-tight", // tighten space between letters
         "text-[clamp(1.25rem,5.2vw,1.875rem)]", // scale font instead of wrapping
         cmpClass,

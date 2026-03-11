@@ -27,8 +27,6 @@ const Settings: React.FC = () => {
   const isSettingsVisible = useAppStore((state) => state.isSettingsVisible);
   const toggleIsSettingsVisible = useAppStore((state) => state.toggleIsSettingsVisible);
 
-  const clickCloseSettings = () => toggleIsSettingsVisible();
-
   const resetBoardBgColorDark = useAppStore((state) => state.resetBoardBgColorDark);
   const resetBoardBgColorLight = useAppStore((state) => state.resetBoardBgColorLight);
   const resetBoardFgColorDark = useAppStore((state) => state.resetBoardFgColorDark);
@@ -77,7 +75,11 @@ const Settings: React.FC = () => {
     >
       <div className={clsx("w-full", "pl-3", "pt-3", "pr-3", "relative")}>
         <div className={clsx("absolute", "right-1", "top-1", "text-base-300")}>
-          <button type="button" className={clsx("cursor-pointer")} onClick={clickCloseSettings}>
+          <button
+            type="button"
+            className={clsx("cursor-pointer")}
+            onClick={toggleIsSettingsVisible}
+          >
             <CloseIcon />
           </button>
         </div>

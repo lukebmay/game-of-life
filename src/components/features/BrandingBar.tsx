@@ -7,40 +7,30 @@
  * This is part of my personal portfolio.
  * No permission is granted to copy, modify, distribute, or use this code.
  */
-import { useAppStore } from "@store/appStore";
-import DayIcon from "@svg/DayIcon";
-import MenuIcon from "@svg/MenuIcon";
-import NightIcon from "@svg/NightIcon";
 import clsx from "clsx";
 import React from "react";
 import Brand from "./BrandingBar/Brand";
+import LightDarkToggle from "./BrandingBar/LightDarkToggle";
+import MenuButton from "./BrandingBar/MenuButton";
 
 const BrandingBar: React.FC = () => {
-  const isDarkMode = useAppStore((state) => state.isDarkMode);
-  const toggleDarkMode = useAppStore((state) => state.toggleIsDarkMode);
-  const toggleIsSettingsVisible = useAppStore((state) => state.toggleIsSettingsVisible);
-
   const cmpClass = "cmp_branding-bar";
 
-  const clickDarkModeToggle = () => {
-    toggleDarkMode();
-  };
-
-  const clickSettingsToggle = () => {
-    toggleIsSettingsVisible();
-  };
-
   return (
-    <div className={clsx("flex", "flex-row", "justify-between", "p-3", "h-15", cmpClass)}>
-      <button className="btn" onClick={clickSettingsToggle}>
-        <MenuIcon />
-      </button>
+    <div
+      className={clsx(
+        "flex",
+        "flex-row",
+        "justify-between",
+        "items-center",
+        "p-3",
+        "h-15",
+        cmpClass,
+      )}
+    >
+      <MenuButton />
       <Brand />
-      <div className="flex gap-2">
-        <NightIcon />
-        <input className="toggle" type="checkbox" checked={!isDarkMode} onClick={toggleDarkMode} />
-        <DayIcon />
-      </div>
+      <LightDarkToggle />
     </div>
   );
 };
