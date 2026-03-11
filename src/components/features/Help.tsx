@@ -155,7 +155,7 @@ const Help: React.FC = () => {
           <h3 className="text-center text-xl pt-5 pb-5">The Basics</h3>
           <ul className="list-disc pl-6 space-y-8">
             <li>
-              <b>The World</b>: An grid of square "cells".
+              <b>The World</b>: A grid of square "cells".
               <div className="flex justify-center my-6">
                 <MiniGrid pattern={emptyGrid} />
               </div>
@@ -167,15 +167,15 @@ const Help: React.FC = () => {
               </div>
             </li>
             <li>
-              <b>The Neighbors</b>: Every cell has 8 neighbors—the squares horizontally, vertically,
-              or diagonally adjacent to it.
+              <b>The Neighbors</b>: Every cell has 8 neighbors (the squares horizontally,
+              vertically, or diagonally adjacent to it).
               <div className="flex justify-center my-6">
                 <MiniGrid pattern={neighborsExample} />
               </div>
             </li>
             <li>
               <b>Generations</b>: The game moves in "ticks" or generations. Every cell on the board
-              updates at the exact same time based on its neighbors.
+              updates every tick based on its neighbors state.
               <div className="flex flex-col lg:flex-row items-center justify-center gap-8 my-8">
                 <MiniGrid pattern={horizontalLine} />
                 <div className="rotate-270 lg:rotate-180">
@@ -188,7 +188,7 @@ const Help: React.FC = () => {
           <br />
           <h3 className="text-center text-xl pt-5 pb-5">The Rules</h3>
           <p className="indent-6">
-            At each step in time, these four rules determine what happens to every cell in the next
+            At each tick, these four rules determine what happens to every cell in the next
             generation.
           </p>
           <br />
