@@ -11,7 +11,7 @@
 @plugin "daisyui" {
   themes:
     dark --default,
-    light --preferslight;
+    light;
 }
 
 @plugin "daisyui/theme" {
@@ -46,9 +46,6 @@ label {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color: teal; /* should always be overridden */
-  background-color: #3311bb; /* should always be overridden */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

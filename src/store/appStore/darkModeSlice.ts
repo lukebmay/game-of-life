@@ -22,5 +22,5 @@ export interface DarkModeSlice extends ReturnType<typeof basicStateOps> {}
 
 export const createDarkModeSlice: SliceCreator<DarkModeSlice, AppStore> = (set, get) => ({
   ...basicStateOps(set, get),
-  isDarkMode: window.matchMedia("(prefers-color-scheme: light)").matches,
+  isDarkMode: !window.matchMedia("(prefers-color-scheme: light)").matches,
 });
