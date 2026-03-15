@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
   const cmpClass = "cmp_footer";
 
   return (
-    <div className={clsx("flex p-2 gap-5 items-around", cmpClass)}>
+    <div className={clsx("flex p-2 gap-5 items-around relative", cmpClass)}>
       <div
         className={clsx(
           "flex-1 flex flex-col lg:flex-row items-around justify-center lg:justify-evenly pt-3",
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
         <DebugInfo />
         <CopyrightNotice />
       </div>
-      <HelpButton className="mr-5" />
+      <HelpButton className="max-lg:mr-5 lg:absolute lg:right-5" />
     </div>
   );
 };
