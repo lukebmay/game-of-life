@@ -46,7 +46,7 @@ const Author: React.FC = () => {
           "justify-around",
           "items-center",
           "w-full",
-          "h-[clamp(50px,28vw,270px)]",
+          "h-[clamp(30px,20vw,200px)]",
           "flex-none",
           "overflow-hidden",
         )}

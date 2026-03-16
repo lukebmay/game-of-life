@@ -17,16 +17,16 @@ const Footer: React.FC = () => {
   const cmpClass = "cmp_footer";
 
   return (
-    <div className={clsx("flex p-2 gap-5 items-around relative", cmpClass)}>
+    <div className={clsx("flex p-0 lg:p-2 gap-2 lg:gap-5 items-around justify-center relative", cmpClass)}>
       <div
         className={clsx(
-          "flex-1 flex flex-col lg:flex-row items-around justify-center lg:justify-evenly pt-3",
+          "lg:flex-1 flex flex-col lg:flex-row items-around justify-evenly lg:justify-evenly pt-3",
         )}
       >
         <DebugInfo />
         <CopyrightNotice />
       </div>
-      <HelpButton className="max-lg:mr-5 lg:absolute lg:right-5 text-primary" />
+      <HelpButton className="absolute right-5 lg:right-8 top-1/2 -translate-y-1/2 w-8 h-8 text-primary" />
     </div>
   );
 };

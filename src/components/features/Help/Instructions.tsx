@@ -108,7 +108,10 @@ const Instructions: React.FC = () => {
         pattern of "live" cells on a grid and watch how they evolve over time.
       </p>
       <br />
+      <hr className="w-full" />
       <h3 className="text-center text-xl pt-5 pb-5">The Basics</h3>
+      <hr className="w-full" />
+      <br />
       <ul className="list-disc pl-6 space-y-8">
         <li>
           <b>The World</b>: A grid of square "cells".
@@ -142,7 +145,10 @@ const Instructions: React.FC = () => {
         </li>
       </ul>
       <br />
+      <hr className="w-full" />
       <h3 className="text-center text-xl pt-5 pb-5">The Rules</h3>
+      <hr className="w-full" />
+      <br />
       <p className="indent-6">
         At each tick, these four rules determine what happens to every cell in the next generation.
       </p>
@@ -190,7 +196,10 @@ const Instructions: React.FC = () => {
         </li>
       </ol>
       <br />
+      <hr className="w-full" />
       <h3 className="text-center text-xl pt-5 pb-5">Common Patterns</h3>
+      <hr className="w-full" />
+      <br />
       <p className="indent-6">Simple rules often lead to complex, beautiful behaviors.</p>
       <br />
       <ul className="list-disc pl-6 space-y-10">

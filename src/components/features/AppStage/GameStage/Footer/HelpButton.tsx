@@ -26,7 +26,7 @@ const HelpButton: React.FC<HelpButtonProps> = ({ className }) => {
       className={clsx("cursor-pointer", "focus:outline-none", className, cmpClass)}
       onClick={toggleIsHelpVisible}
     >
-      <HelpIcon className="w-10 h-10" />
+      <HelpIcon className="w-full h-full" />
     </button>
   );
 };

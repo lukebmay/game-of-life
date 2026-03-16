@@ -21,7 +21,9 @@ const Project: React.FC = () => {
       )}
     >
       <br />
+      <hr className="w-full" />
       <h3 className="text-center text-xl pt-5 pb-5">Description</h3>
+      <hr className="w-full" />
       <br />
       <p className="indent-6">
         <a
@@ -42,7 +44,9 @@ const Project: React.FC = () => {
       </p>
 
       <br />
+      <hr className="w-full" />
       <h3 className="text-center text-xl pt-5 pb-5">Primary Goals</h3>
+      <hr className="w-full" />
       <br />
       <ol className="list-decimal pl-6 space-y-2">
         <li>Push React rendering speeds to the limit.</li>
@@ -54,7 +58,9 @@ const Project: React.FC = () => {
       </ol>
 
       <br />
+      <hr className="w-full" />
       <h3 className="text-center text-xl pt-5 pb-5">Technologies</h3>
+      <hr className="w-full" />
       <br />
       <ol className="list-decimal pl-6 space-y-2">
         <li>
@@ -111,7 +117,9 @@ const Project: React.FC = () => {
       </h3>
 
       <br />
+      <hr className="w-full" />
       <h3 className="text-center text-xl pt-5 pb-5">Use of AI </h3>
+      <hr className="w-full" />
       <br />
       <p className="indent-6">
         The primary use of AI in this project was as a reference to understand how various libraries
@@ -122,7 +130,9 @@ const Project: React.FC = () => {
         files and settings, and to challenge my understanding of current best practices.
       </p>
       <br />
+      <hr className="w-full" />
       <h3 className="text-center text-xl pt-5 pb-5">Musings on AI in General</h3>
+      <hr className="w-full" />
       <br />
       <p className="indent-6">
         My personal take on AI's coding ability (as of early 2026) is that it's functionally

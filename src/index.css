@@ -28,9 +28,9 @@
   --color-base-content: theme(colors.neutral.700);
 
   --color-primary: #3300ee;
-  --color-accent: #22cc99;
-  --color-primary-content: #ffffff;
-  --color-accent-content: #ffffff;
+  --color-accent: #228866;
+  --color-primary-content: theme(colors.neutral.300);
+  --color-accent-content: theme(colors.neutral.300);
 }
 
 @plugin "daisyui/theme" {
@@ -42,10 +42,10 @@
   --color-base-300: theme(colors.neutral.700);
   --color-base-content: theme(colors.neutral.300);
 
-  --color-primary: #22cc99;
+  --color-primary: #228866;
   --color-accent: #3300ee;
-  --color-primary-content: #ffffff;
-  --color-accent-content: #ffffff;
+  --color-primary-content: theme(colors.neutral.300);
+  --color-accent-content: theme(colors.neutral.300);
 }
 
 hr {
