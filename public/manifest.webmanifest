@@ -1,0 +1,12 @@
+{
+  "name": "Game of Life",
+  "short_name": "GoL",
+  "start_url": "/game-of-life/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#3300ee",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
