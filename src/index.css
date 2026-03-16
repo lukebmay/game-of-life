@@ -8,6 +8,10 @@
  * No permission is granted to copy, modify, distribute, or use this code.
  */
 @import "tailwindcss";
+
+/* Tailwind prefers class based theme management to media queries for more control */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 @plugin "daisyui" {
   themes:
     dark --default,
@@ -22,6 +26,11 @@
   --color-base-200: theme(colors.neutral.300);
   --color-base-300: theme(colors.neutral.400);
   --color-base-content: theme(colors.neutral.700);
+
+  --color-primary: #3300ee;
+  --color-accent: #22cc99;
+  --color-primary-content: #ffffff;
+  --color-accent-content: #ffffff;
 }
 
 @plugin "daisyui/theme" {
@@ -32,6 +41,11 @@
   --color-base-200: theme(colors.neutral.800);
   --color-base-300: theme(colors.neutral.700);
   --color-base-content: theme(colors.neutral.300);
+
+  --color-primary: #22cc99;
+  --color-accent: #3300ee;
+  --color-primary-content: #ffffff;
+  --color-accent-content: #ffffff;
 }
 
 hr {
@@ -89,7 +103,7 @@ label {
 
 /* Alive cells override the background */
 .cmp_board > *.cell-alive {
-  background-color: var(--alive-color, #3311bb);
+  background-color: var(--alive-color, #3300ee);
 }
 
 /* Grid lines */

@@ -11,29 +11,14 @@ import AppStage from "@features/AppStage";
 import BrandingBar from "@features/BrandingBar";
 import Help from "@features/Help";
 import { useSyncBoardColors } from "@hooks/useSyncBoardColors";
-import { useAppStore } from "@store/appStore";
+import { useTheme } from "@hooks/useTheme";
 import clsx from "clsx";
-import React, { useEffect } from "react";
+import React from "react";
 
 const App: React.FC = () => {
   const cmpClass = "app-cmp";
 
-  // Theme
-  useEffect(() => {
-    const unsubscribe = useAppStore.subscribe(
-      (state) => state.isDarkMode,
-      (newValue: boolean) => {
-        const theme = newValue ? "dark" : "light";
-        document.documentElement.setAttribute("data-theme", theme);
-        document.documentElement.style.colorScheme = `only ${theme}`;
-      },
-    );
-    const initialTheme = useAppStore.getState().isDarkMode ? "dark" : "light";
-    document.documentElement.setAttribute("data-theme", initialTheme);
-    document.documentElement.style.colorScheme = `only ${initialTheme}`;
-    return unsubscribe;
-  }, []);
-
+  useTheme();
   useSyncBoardColors();
 
   return (

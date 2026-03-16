@@ -15,9 +15,9 @@ export const defaults = {
   boardBgColor: "#000000",
   boardBgColorDark: "#000000",
   boardBgColorLight: "#FFFFFF",
-  boardFgColor: "#3311bb",
-  boardFgColorDark: "#3311bb",
-  boardFgColorLight: "#22cc77",
+  boardFgColor: "#22cc99",
+  boardFgColorDark: "#22cc99",
+  boardFgColorLight: "#3300ee",
   boardGridColor: "#222222",
   boardGridColorDark: "#222222",
   boardGridColorLight: "#bbbbbb",
@@ -25,7 +25,7 @@ export const defaults = {
   isHelpVisible: true,
   stateTransitionDelay: 200,
   isDebugInfoVisible: false,
-  autoPauseAfterMinutes: 10,
+  autoPauseAfterMinutes: 5,
   autoFillAlivePercentage: 30.0,
 };
 

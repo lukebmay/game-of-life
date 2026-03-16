@@ -72,7 +72,6 @@ const Author: React.FC = () => {
             "aspect-square",
             "rounded-full",
             "object-cover",
-            "border-[8vh]",
             "border-solid",
             "border-[clamp(13px,3.2vw,25px)]",
             "border-[var(--color-base-100)]",
@@ -178,9 +177,8 @@ const Author: React.FC = () => {
               "aspect-square",
               "rounded-full",
               "object-cover",
-              "border-[8vh]",
               "border-solid",
-              "border-[clamp(13px,3.2vw,25px)]",
+              "border-[clamp(10px,1.8vw,16px)]",
               "border-[var(--color-base-100)]",
               "cursor-pointer",
             )}

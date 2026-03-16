@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
         <DebugInfo />
         <CopyrightNotice />
       </div>
-      <HelpButton className="max-lg:mr-5 lg:absolute lg:right-5" />
+      <HelpButton className="max-lg:mr-5 lg:absolute lg:right-5 text-primary" />
     </div>
   );
 };

@@ -105,7 +105,7 @@ const Project: React.FC = () => {
       <h3 className="text-center text-xl pt-5 pb-5">
         Source Code <br />
         <br />
-        <a className="link link-accent" href="https://github.com/lukebmay/game-of-life">
+        <a className="link link-secondary" href="https://github.com/lukebmay/game-of-life">
           Luke B. May - Game of Life
         </a>
       </h3>
