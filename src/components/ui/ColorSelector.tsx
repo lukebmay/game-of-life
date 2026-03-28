@@ -38,7 +38,6 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({ color, onChange }) => {
   const [tmpColor, setTmpColor] = useState(color);
   const [displayHex, setDisplayHex] = useState(cleanDisplayHex(color));
 
-
   useEffect(() => {
     setTmpColor(color);
     setDisplayHex(cleanDisplayHex(color));
@@ -49,6 +48,7 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({ color, onChange }) => {
       popoverRef?.current?.hidePopover();
     } else {
       popoverRef?.current?.showPopover();
+      scrollPopoverToTop();
     }
   };
 
@@ -60,30 +60,41 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({ color, onChange }) => {
   };
 
   const handleCancel = () => {
-  setTmpColor(color);
-  setDisplayHex(cleanDisplayHex(color));
-  popoverRef?.current?.hidePopover();
-};
+    setTmpColor(color);
+    setDisplayHex(cleanDisplayHex(color));
+    popoverRef?.current?.hidePopover();
+  };
   const handlePickerChange = (newColor: string) => {
-  if (isValidHexColor(newColor)) {
-    setTmpColor(newColor);
-    setDisplayHex(cleanDisplayHex(newColor));
-  }
-};
+    if (isValidHexColor(newColor)) {
+      setTmpColor(newColor);
+      setDisplayHex(cleanDisplayHex(newColor));
+    }
+  };
 
   const handleHexInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let value = cleanDisplayHex(e.target.value)
+    let value = cleanDisplayHex(e.target.value);
     setDisplayHex(value);
     if (value.length === 3 || value.length === 6) {
-      const normalized = value.length === 3
-        ? value.split("").map((c) => c + c).join("")
-        : value;
+      const normalized =
+        value.length === 3
+          ? value
+              .split("")
+              .map((c) => c + c)
+              .join("")
+          : value;
       const fullColor = `#${normalized}`;
       if (isValidHexColor(fullColor)) setTmpColor(fullColor);
     }
   };
 
-
+  const scrollPopoverToTop = () => {
+    setTimeout(() => {
+      popoverRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 150);
+  };
 
   useOnClickOutside(
     [popoverRef as React.RefObject<HTMLElement>, mainButtonRef as React.RefObject<HTMLElement>],
@@ -137,7 +148,9 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({ color, onChange }) => {
           <HexColorPicker color={tmpColor} onChange={handlePickerChange} />
           <div className="bg-base-200 rounded-box px-3 py-2">
             <div className="relative flex items-center justify-center">
-              <span className="absolute left-0 text-neutral-400 font-mono text-xl select-none">#</span>
+              <span className="absolute left-0 text-neutral-400 font-mono text-xl select-none">
+                #
+              </span>
               <input
                 ref={hexInputRef}
                 type="text"
