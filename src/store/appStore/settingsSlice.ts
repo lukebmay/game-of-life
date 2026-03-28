@@ -14,7 +14,7 @@ export const defaults = {
   isSettingsVisible: false,
   boardBgColor: "#000000",
   boardBgColorDark: "#000000",
-  boardBgColorLight: "#FFFFFF",
+  boardBgColorLight: "#ffffff",
   boardFgColor: "#228866",
   boardFgColorDark: "#228866",
   boardFgColorLight: "#3300ee",
@@ -29,7 +29,7 @@ export const defaults = {
   autoFillAlivePercentage: 30.0,
 };
 
-const validateRGBString = (value: string): boolean => /^#[0-9abcfef]{6}$/i.test(value);
+const validateRGBString = (value: string): boolean => /^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/.test(value);
 const validators = {
   boardBgColorDark: validateRGBString,
   boardBgColorLight: validateRGBString,
