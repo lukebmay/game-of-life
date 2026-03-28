@@ -8,10 +8,10 @@
  * No permission is granted to copy, modify, distribute, or use this code.
  */
 import { useAppStore } from "@/store/appStore";
-import Dog from "@img/dog.jpg";
-import Luke2 from "@img/family.jpg";
-import Luke0 from "@img/lukebmay0.jpg";
-import Luke1 from "@img/lukebmay1.jpg";
+import Dog from "@img/dog.webp";
+import Luke2 from "@img/family.webp";
+import Luke0 from "@img/lukebmay0.webp";
+import Luke1 from "@img/lukebmay1.webp";
 import clsx from "clsx";
 import React from "react";
 
@@ -64,6 +64,9 @@ const Author: React.FC = () => {
             "cursor-pointer",
           )}
           src={Luke0}
+          alt="Portrait of Luke Benjamin May"
+          loading="lazy"
+          decoding="async"
           onClick={() => (window.location.href = "https://lukemay.com")}
         />
         <img
@@ -78,6 +81,9 @@ const Author: React.FC = () => {
             "cursor-pointer",
           )}
           src={Luke1}
+          alt="Portrait of Luke Benjamin May"
+          loading="lazy"
+          decoding="async"
           onClick={() => (window.location.href = "https://lukemay.com")}
         />
         <img
@@ -93,6 +99,9 @@ const Author: React.FC = () => {
             "cursor-pointer",
           )}
           src={Luke2}
+          alt="Portrait of Luke Benjamin May with family"
+          loading="lazy"
+          decoding="async"
           onClick={() => (window.location.href = "https://lukemay.com")}
         />
       </div>
@@ -183,6 +192,9 @@ const Author: React.FC = () => {
               "cursor-pointer",
             )}
             src={Dog}
+            alt="Portrait of Chunkers the Chihuahua"
+            loading="lazy"
+            decoding="async"
             onClick={() => (window.location.href = "https://lukemay.com")}
           />
         </div>
