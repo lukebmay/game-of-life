@@ -1,9 +1,9 @@
 schema = 1
 tool_version = "0.1.4"
 catalog_version = "0.1.3"
-composer_path = "agentsmd_build.py"
+composer_path = "agents.py"
 installed_at = "2026-07-18T00:41:08+00:00"
-updated_at = "2026-07-18T14:26:51+00:00"
+updated_at = "2026-07-18T14:39:16+00:00"
 
 [[files]]
 id = "ansi-colors"
@@ -26,7 +26,7 @@ sha256 = "68f89ad65dd7a1a7a01a20986b7777b23ee3893daf39dea1e2fac65601c93420"
 [[files]]
 id = "general"
 path = "general.md"
-version = "1.0.0"
+version = "1.0.1"
 sha256 = "6028d008547c40e4764f43b7aa46e9922baba68e6cc74b5628d17825ec5d7334"
 
 [[files]]
