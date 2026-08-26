@@ -1,3 +1,5 @@
+<!-- migrated from agents/tasks/explore-project.md by agents migrate-layout -->
+
 # Task — Explore project: game-of-life
 
 **Status:** Pending — next session  
