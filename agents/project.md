@@ -4,7 +4,7 @@
 
 Conway Game of Life — React + TypeScript + Vite (portfolio demo).
 
-**Next task:** [agents/tasks/explore-project.md](agents/tasks/explore-project.md)
+**Next:** [`priority.md`](priority.md). Layers in architecture are still unfilled.
 
 ## Stack
 
