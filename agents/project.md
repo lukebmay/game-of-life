@@ -2,20 +2,29 @@
 
 ## Overview
 
-Conway Game of Life — React + TypeScript + Vite (portfolio demo).
+Conway's Game of Life as a portfolio page for Luke May. Visitors edit
+a cell board and run generations in the browser. The app is React,
+TypeScript, and Vite. This repo does not name a deploy URL.
 
-**Next:** [`priority.md`](priority.md). Layers in architecture are still unfilled.
+**Next:** [`agents/priority.md`](priority.md).
 
 ## Stack
 
-*(Fill during explore task.)*
+React, TypeScript, and Vite. Zustand holds the board and the app
+settings. Tailwind CSS and daisyUI style the page.
 
-## Priorities for agents
+## Scripts
 
-1. Complete the explore task and replace TODOs here with facts.
-2. Prefer small follow-ons that help job-search visibility.
-3. Do not invent live deploy state — verify scripts and docs.
+Names match `package.json`. Run them with npm:
 
-## Layout
+- `dev` starts the Vite dev server.
+- `build` runs `tsc -b` and then `vite build`.
+- `preview` serves the `dist/` build.
+- `lint` runs ESLint.
+- `type-check` runs `tsc -b`.
+- `test` prints that no tests are defined and exits successfully.
+- `clean` runs `tsc -b --clean` and removes `dist/`.
+- `rebuild` runs `clean`, then `build`.
 
-See repo tree; refine during explore.
+How a click or a tick becomes the next board is
+[`architecture.md`](architecture.md).
