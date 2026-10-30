@@ -7,8 +7,9 @@
   "description": "An implementation of Conway's Game of Life in React",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "test": "echo \"No tests defined. Skipping.\"",
+    "dev": "scripts/dev.sh",
+    "test": "scripts/test.sh",
+    "deploy": "scripts/deploy.sh",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",

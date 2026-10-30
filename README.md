@@ -15,10 +15,25 @@ npm install
 ## Run
 
 ```bash
+npm test
 npm run dev
+npm run deploy
 ```
 
-Vite starts a dev server and prints the local URL.
+`dev` execs the local Vite binary on 127.0.0.1 port 5173. Vite prints
+the local URL.
+
+From the lukemay.com repo root:
+
+```bash
+npm run game-of-life test
+npm run game-of-life dev
+npm run game-of-life deploy
+```
+
+`deploy plan` prints the rsync and does not run it. A dashed flag needs
+`--` (`npm run game-of-life -- dev --port 9000`). Positional locations
+do not.
 
 ## Build
 
