@@ -1,16 +1,15 @@
 ---
 title: TypeScript
-read_when: Writing or reviewing TypeScript
 order: 200
 ---
 
 # TypeScript
 
+When to use: Writing or reviewing TypeScript.
+
 **Precedence:** `tsconfig.json` / `tsconfig.*.json`, ESLint typescript-eslint, Prettier, and package scripts override this file.
 
-JS style baseline: `agents/languages/javascript.md`. React: `agents/languages/react.md`.
-
-shellrc inspiration: ESLint TS parser/plugin; unused-vars via `@typescript-eslint`; same Prettier/indent as JS (2 spaces, max-len 100).
+JS style baseline: `javascript.md`. React: `react.md`.
 
 ## When
 
